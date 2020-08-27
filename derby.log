@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Aug 27 18:56:40 BRT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0174-31ec-3ff7-000013bc9970 
+on database directory /Users/lribas/Development/git/open-source-publications/rio-cloud-conference/rio-cloud-conference-iac-api/mydb with class loader sun.misc.Launcher$AppClassLoader@659e0bfd 
+Loaded from file:/Users/lribas/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=AdoptOpenJDK
+java.runtime.version=1.8.0_252-b09
+user.dir=/Users/lribas/Development/git/open-source-publications/rio-cloud-conference/rio-cloud-conference-iac-api
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.15.6
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
