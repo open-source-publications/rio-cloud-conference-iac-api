@@ -171,7 +171,7 @@ pipeline{
                 }
             }
         }
-        /*
+        
         stage("Openshift Deployment") {
             agent {
                 node {
@@ -192,12 +192,13 @@ pipeline{
                     '''
                 echo '### set env vars and image for deployment ###'
                 sh '''
-                    oc set env dc ${APP_NAME} NODE_ENV=${NODE_ENV} SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+                    oc set env dc ${APP_NAME} NODE_ENV=${NODE_ENV}
                     oc set image dc/${APP_NAME} ${APP_NAME}=docker-registry.default.svc:5000/${PROJECT_NAMESPACE}/${APP_NAME}:${JENKINS_TAG}
                     oc label --overwrite dc ${APP_NAME} stage=${NODE_ENV}
-                    oc patch dc ${APP_NAME} -p "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"version\\":\\"${VERSION}\\",\\"release\\":\\"${RELEASE}\\",\\"stage\\":\\"${NODE_ENV}\\",\\"git-commit\\":\\"${GIT_COMMIT}\\",\\"jenkins-build\\":\\"${JENKINS_TAG}\\"}}}}}"
+                    oc patch dc ${APP_NAME} -p "{\\"spec\\":{\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"stage\\":\\"${NODE_ENV}\\"}}}}}"
                     oc rollout latest dc/${APP_NAME}
                 '''
+                //\\"version\\":\\"${VERSION}\\",\\"release\\":\\"${RELEASE}\\",,\\"git-commit\\":\\"${GIT_COMMIT}\\",\\"jenkins-build\\":\\"${JENKINS_TAG}\\"
                 echo '### Verify OCP Deployment ###'
                 openshiftVerifyDeployment depCfg: env.APP_NAME,
                     namespace: env.PROJECT_NAMESPACE,
@@ -207,6 +208,6 @@ pipeline{
                     waitTime: '',
                     waitUnit: 'sec'
             }
-        }*/
+        }
     }
 }
