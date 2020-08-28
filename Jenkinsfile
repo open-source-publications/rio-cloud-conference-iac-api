@@ -75,7 +75,7 @@ pipeline{
         stage("Test/Build/Nexus/OpenShift Build"){
             agent {
                 node {
-                    label "mvn"
+                    label "maven"
                 }
             }
             stages{
